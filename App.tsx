@@ -1,23 +1,29 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import BookClass from "./src/components/Book";
+
+import {ApolloClient, InMemoryCache, ApolloProvider} from "@apollo/client";
+import { useColorScheme} from 'react-native';
+import {SafeAreaProvider} from "react-native-safe-area-context";
+import Navigation from "./src/navigation/Navigation";
+
+
+const API_KEY = 'boda::stepzen.net+1000::1a4039032c29cfa1d5637c51263362ee4d7e9cc6a9b64cd8108eb7122298ea46';
+
+const client = new ApolloClient({
+    uri: "https://boda.stepzen.net/api/veering-wildebeest/__graphql",
+    headers: {
+        Authorization: `Apikey ${API_KEY}`,
+    },
+    cache: new InMemoryCache(),
+});
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>This is my first app</Text>
-      <BookClass title={"Book"} description={"Description"} price={3.74} />
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+    const colorScheme = useColorScheme();
+    return (
+      <SafeAreaProvider>
+        <ApolloProvider client={client}>
+            <Navigation colorScheme={colorScheme} />
+        </ApolloProvider>
+      </SafeAreaProvider>
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+    );
+}

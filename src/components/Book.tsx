@@ -1,6 +1,6 @@
 import React from "react";
 import {FC} from "react";
-import {SafeAreaView, StatusBar, StyleSheet, Text} from "react-native";
+import { SafeAreaView, StatusBar, StyleSheet, Text} from "react-native";
 
 interface Book {
     title: string,
@@ -8,12 +8,14 @@ interface Book {
     price: number
 }
 const BookClass: FC<Book> = props => {
+
+
     return (
         <SafeAreaView>
-            <StatusBar backgroundColor="white" />
-            <Text style={styles.textstyle}>{props.title}</Text>
-            <Text style={styles.textstyle}>{props.description}</Text>
-            <Text style={styles.textstyle}>{props.price}</Text>
+            <StatusBar backgroundColor="#61dafb" />
+                <Text style={styles.textstyle}>{props.title}</Text>
+                <Text style={styles.textstyle}>{props.description}</Text>
+                <Text style={styles.textstyle}>{props.price}</Text>
         </SafeAreaView>
     );
 };
