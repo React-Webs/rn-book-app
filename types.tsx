@@ -9,14 +9,14 @@ declare global {
 }
 
 export type  RootStackParamList = {
-    Root: NavigatorScreenParams<RootTabParamList> | undefined;
+    'BooksApp': NavigatorScreenParams<RootTabParamList> | undefined;
     Modal: undefined;
     NotFound: undefined;
 }
 
 export type RootTabParamList = {
     Search: undefined;
-    "MyBooks": undefined;
+    "My Books To Read": undefined;
 }
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> =

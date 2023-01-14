@@ -4,6 +4,7 @@ import {ApolloClient, InMemoryCache, ApolloProvider} from "@apollo/client";
 import { useColorScheme} from 'react-native';
 import {SafeAreaProvider} from "react-native-safe-area-context";
 import Navigation from "./src/navigation/Navigation";
+import MyBooksProvider from "./src/context/MyBooksProvider";
 
 
 const API_KEY = 'boda::stepzen.net+1000::1a4039032c29cfa1d5637c51263362ee4d7e9cc6a9b64cd8108eb7122298ea46';
@@ -21,7 +22,9 @@ export default function App() {
     return (
       <SafeAreaProvider>
         <ApolloProvider client={client}>
-            <Navigation colorScheme={colorScheme} />
+            <MyBooksProvider>
+                <Navigation colorScheme={colorScheme} />
+            </MyBooksProvider>
         </ApolloProvider>
       </SafeAreaProvider>
 

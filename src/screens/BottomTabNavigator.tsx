@@ -25,7 +25,7 @@ function BottomTabNavigation() {
                                   headerShown: false,
                               }}
             />
-            <BottomTab.Screen name={'MyBooks'}
+            <BottomTab.Screen name={'My Books To Read'}
                               component={MyBooksScreen}
                               options={{
                                   tabBarIcon: ({color}) => <TabBarIcon name={"book"} color={color}/>,

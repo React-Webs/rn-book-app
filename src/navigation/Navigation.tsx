@@ -1,5 +1,5 @@
 import React from "react";
-import {createNativeStackNavigator} from "react-native-screens/native-stack";
+import {createNativeStackNavigator} from "@react-navigation/native-stack";
 import {RootStackParamList} from "../../types";
 import BottomTabNavigator from "../screens/BottomTabNavigator";
 import NotFoundScreen from "../screens/NotFoundScreen";
@@ -23,7 +23,7 @@ export default function Navigation({colorScheme,}:{colorScheme : ColorSchemeName
 function RootNavigator() {
     return (
         <Stack.Navigator>
-            <Stack.Screen name={'Root'}
+            <Stack.Screen name={'BooksApp'}
             component={BottomTabNavigator}
             options={{headerShown : true}} />
 
@@ -31,7 +31,7 @@ function RootNavigator() {
             component={NotFoundScreen}
             options={{title :"Oops! Something is wrong."}} />
 
-            <Stack.Group screenOptions={{ stackPresentation: "modal" }}>
+            <Stack.Group screenOptions={{ title : "modal" }}>
                 <Stack.Screen name={'Modal'} component={ModalScreen} />
             </Stack.Group>
         </Stack.Navigator>
